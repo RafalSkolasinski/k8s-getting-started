@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "microservice"
+version = "0.1.0"
+description = "Just a toy microservice"
+authors = ["Rafal Skolasinski <r.j.skolasinski@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "~3.12"
+fastapi = "^0.115.5"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.8.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
