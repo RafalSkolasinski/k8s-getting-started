@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: microservice-config
 data:
-  ROOT_RESPONSE: "Hello, World!"
+  ROOT_RESPONSE: "Hello my dear world!"
 
 ---
 
