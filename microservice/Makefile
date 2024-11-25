@@ -1,3 +1,5 @@
+DOCKER_REGISTRY ?= rafalskolasinski
+
 install:
 	poetry install
 
@@ -20,5 +22,5 @@ run:
 	docker run --rm -it -p 8080:8080 microservice:latest
 
 push:
-	docker tag microservice:latest rafalskolasinski/microservice:python
-	docker push rafalskolasinski/microservice:python
+	docker tag microservice:latest ${DOCKER_REGISTRY}/microservice:python
+	docker push ${DOCKER_REGISTRY}/microservice:python
