@@ -18,3 +18,7 @@ build:
 
 run:
 	docker run --rm -it -p 8080:8080 microservice:latest
+
+push:
+	docker tag microservice:latest rafalskolasinski/microservice:python
+	docker push rafalskolasinski/microservice:python

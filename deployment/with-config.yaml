@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: microservice-config
+data:
+  ROOT_RESPONSE: "Hello, World!"
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microservice
+  labels:
+    app: microservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: microservice
+  template:
+    metadata:
+      labels:
+        app: microservice
+    spec:
+      containers:
+      - name: microservice
+        image: rafalskolasinski/microservice:python
+        imagePullPolicy: Always
+        env:
+        - name: ROOT_RESPONSE
+          valueFrom:
+            configMapKeyRef:
+              name: microservice-config
+              key: ROOT_RESPONSE
+      terminationGracePeriodSeconds: 0
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: microservice
+spec:
+  type: LoadBalancer
+  selector:
+    app: microservice
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080

@@ -10,6 +10,8 @@ SECRETS_PATH = os.environ.get(
     "SECRETS_PATH", f"{os.path.dirname(os.path.realpath(__file__))}/data/secrets.txt"
 )
 
+ROOT_RESPONSE = os.environ.get("ROOT_RESPONSE", "Hello world!")
+
 app = FastAPI()
 
 
@@ -22,7 +24,7 @@ class Date(BaseModel):
 
 @app.get("/")
 def root():
-    return "Hello world!"
+    return ROOT_RESPONSE
 
 
 @app.get("/hello/{name}")
