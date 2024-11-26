@@ -5,3 +5,4 @@ Note: this is still work in progress. Many things may change as I develop these 
 ## Content Overview
 
 - [microservice](./microservice/) contains a sample Python microservice written using `FastAPI`
+- [deployment](./deployment/) basic manifests to deploy microservice into `K8s`
